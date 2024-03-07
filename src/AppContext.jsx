@@ -7,6 +7,10 @@ export const useGlobalContext = () => {
 }
 
 export function AppContext({ children }) {
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
+  function onToggleTheme() {
+    setIsDarkTheme(!isDarkTheme)
+  }
   return (
     <GlobalContext.Provider value={{}}>
       {children}
