@@ -10,9 +10,11 @@ export function AppContext({ children }) {
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   function onToggleTheme() {
     setIsDarkTheme(!isDarkTheme)
+    const body = document.querySelector('body');
+    body.classList.toggle('dark-theme', isDarkTheme)
   }
   return (
-    <GlobalContext.Provider value={{isDarkTheme, onToggleTheme}}>
+    <GlobalContext.Provider value={{ isDarkTheme, onToggleTheme }}>
       {children}
     </GlobalContext.Provider>
   )
