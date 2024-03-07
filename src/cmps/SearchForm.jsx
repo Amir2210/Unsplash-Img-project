@@ -1,10 +1,12 @@
+import { useGlobalContext } from '../AppContext'
 
 export function SearchForm() {
+  const { onSearchImgs } = useGlobalContext()
   function handleSubmit(ev) {
     ev.preventDefault()
     const searchValue = ev.target.elements.search.value
     if (!searchValue) return
-    console.log(searchValue)
+    onSearchImgs(searchValue)
   }
   return (
     <section>
@@ -12,7 +14,7 @@ export function SearchForm() {
       <form className='search-form' onSubmit={handleSubmit}>
         <input className='form-input search-input'
           type="text"
-          placeholder='cat'
+          placeholder='Otter'
           name='search'
         />
         <button type='submit' className='btn'>search</button>
