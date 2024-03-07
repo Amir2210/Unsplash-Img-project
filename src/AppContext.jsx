@@ -12,7 +12,7 @@ export function AppContext({ children }) {
     setIsDarkTheme(!isDarkTheme)
   }
   return (
-    <GlobalContext.Provider value={{}}>
+    <GlobalContext.Provider value={{isDarkTheme, onToggleTheme}}>
       {children}
     </GlobalContext.Provider>
   )
