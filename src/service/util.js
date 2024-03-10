@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let customFetch = axios.create({
-  baseURL: 'https://api.unsplash.com/search/photos?client_id=dj8hCr9csIJHEDRUJqBj1-QzTUx8hpLp18PUYMTVhdY',
+  baseURL: `https://api.unsplash.com/search/photos?client_id=${import.meta.env.VITE_API_KEY}`,
 })
 
 export default customFetch

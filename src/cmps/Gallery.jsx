@@ -2,7 +2,6 @@ import { useFetchPhotos } from '../service/GetPhotos'
 
 export function Gallery() {
   const { isLoading, data, isError, error } = useFetchPhotos()
-  // console.log(data)
   if (!data) return <div>Loading...</div>
   if (data.isError) return <h2>There was an error...</h2>
   const results = data.data.results
