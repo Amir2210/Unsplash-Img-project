@@ -1,5 +1,5 @@
 import { useGlobalContext } from '../AppContext'
-
+import { IoMdSearch } from "react-icons/io";
 export function SearchForm() {
   const { onSearchImgs } = useGlobalContext()
   function handleSubmit(ev) {
@@ -11,10 +11,11 @@ export function SearchForm() {
   return (
     <section>
       <h1 className='title'>Unsplash Images</h1>
+      <h2 className='title subtitle'><IoMdSearch /> Search high-resolution images</h2>
       <form className='search-form' onSubmit={handleSubmit}>
         <input className='form-input search-input'
           type="text"
-          placeholder='Otter'
+          placeholder='Panda'
           name='search'
         />
         <button type='submit' className='btn'>search</button>

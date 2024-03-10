@@ -184,6 +184,10 @@ Search Form
   color: var(--primary-500);
 }
 
+.title.subtitle {
+  margin-top: 20px;
+}
+
 .search-form {
   width: var(--view-width);
   max-width: var(--fixed-width);

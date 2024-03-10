@@ -4,7 +4,6 @@ import { useGlobalContext } from '../AppContext'
 
 export const useFetchPhotos = () => {
   const { searchInput } = useGlobalContext();
-
   const { isLoading, data, isError, error } = useQuery({
     queryKey: ['photos', searchInput],
     queryFn: async () => {

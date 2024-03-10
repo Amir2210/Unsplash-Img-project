@@ -20,7 +20,7 @@ const getInitialDarkMode = () => {
 export function AppContext({ children }) {
 
   const [isDarkTheme, setIsDarkTheme] = useState(getInitialDarkMode())
-  const [searchInput, setSearchInput] = useState('otter')
+  const [searchInput, setSearchInput] = useState('panda')
 
   useEffect(() => {
     document.body.classList.toggle('dark-theme', isDarkTheme);
