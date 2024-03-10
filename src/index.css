@@ -162,6 +162,13 @@ ul {
   cursor: pointer;
 }
 
+.loader {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .toggle-icon {
   font-size: 1.5rem;
   color: var(--textColor);
