@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 const GlobalContext = createContext()
 
@@ -6,15 +6,30 @@ export const useGlobalContext = () => {
   return useContext(GlobalContext)
 }
 
+const getInitialDarkMode = () => {
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const storedDarkMode = localStorage.getItem('darkTheme');
+
+  if (storedDarkMode === null) {
+    return prefersDarkMode;
+  }
+
+  return storedDarkMode === 'true';
+}
+
 export function AppContext({ children }) {
-  const [isDarkTheme, setIsDarkTheme] = useState(false)
+
+  const [isDarkTheme, setIsDarkTheme] = useState(getInitialDarkMode())
   const [searchInput, setSearchInput] = useState('otter')
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-theme', isDarkTheme);
+  }, [isDarkTheme]);
 
   function onToggleTheme() {
     const newDarkTheme = !isDarkTheme
     setIsDarkTheme(newDarkTheme)
-    const body = document.querySelector('body');
-    body.classList.toggle('dark-theme', newDarkTheme);
+    localStorage.setItem('darkTheme', newDarkTheme)
   }
   function onSearchImgs(input) {
     const newSearchInput = input
